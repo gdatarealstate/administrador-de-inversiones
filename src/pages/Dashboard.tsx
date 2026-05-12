@@ -48,7 +48,7 @@ export default function Dashboard() {
   });
 
   const kpi = data?.kpi ?? {
-    totalDebt: 0,
+    totalActiveCapital: 0,
     accruedInterest: 0,
     weightedRate: 0,
     monthlyProjectedFlow: 0,
@@ -73,8 +73,8 @@ export default function Dashboard() {
       {/* KPI Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
         <KPICard
-          title="Deuda Total Activa"
-          value={formatCurrency(kpi.totalDebt)}
+          title="Capital Total Activo"
+          value={formatCurrency(kpi.totalActiveCapital)}
           icon={DollarSign}
           accentColor="default"
           trend={{ value: "+2.3%", positive: true }}

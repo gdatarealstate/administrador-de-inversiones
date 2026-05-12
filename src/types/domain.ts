@@ -46,7 +46,7 @@ export interface Payment {
 }
 
 export interface DashboardKPI {
-  totalDebt: number;
+  totalActiveCapital: number;
   accruedInterest: number;
   weightedRate: number;
   monthlyProjectedFlow: number;

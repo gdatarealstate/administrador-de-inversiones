@@ -67,7 +67,7 @@ export async function getDashboardData(): Promise<DashboardData> {
   ]);
 
   const activeContracts = contracts.filter((contract) => contract.status === "Activo");
-  const totalDebt = activeContracts.reduce((sum, contract) => sum + contract.outstandingBalance, 0);
+  const totalActiveCapital = activeContracts.reduce((sum, contract) => sum + contract.outstandingBalance, 0);
   const accruedInterest = payments
     .filter((payment) => payment.type === "Interés")
     .reduce((sum, payment) => sum + payment.amount, 0);
@@ -112,7 +112,7 @@ export async function getDashboardData(): Promise<DashboardData> {
 
   return {
     kpi: {
-      totalDebt,
+      totalActiveCapital,
       accruedInterest,
       weightedRate,
       monthlyProjectedFlow,
