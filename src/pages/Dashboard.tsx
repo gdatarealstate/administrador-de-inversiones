@@ -79,14 +79,12 @@ export default function Dashboard() {
           value={formatCurrency(kpi.totalActiveCapital)}
           icon={DollarSign}
           accentColor="default"
-          trend={{ value: "+2.3%", positive: true }}
         />
         <KPICard
           title="Intereses Devengados"
           value={formatCurrency(kpi.accruedInterest)}
           icon={TrendingUp}
           accentColor="accent"
-          trend={{ value: "+5.1%", positive: true }}
         />
         <KPICard
           title="Tasa Prom. Ponderada"
