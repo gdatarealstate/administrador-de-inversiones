@@ -1,4 +1,5 @@
 import { LucideIcon, TrendingUp, TrendingDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface KPICardProps {
   title: string;
@@ -7,6 +8,7 @@ interface KPICardProps {
   icon: LucideIcon;
   trend?: { value: string; positive: boolean };
   accentColor?: "default" | "accent" | "success" | "destructive" | "info";
+  className?: string;
 }
 
 export function KPICard({
@@ -16,6 +18,7 @@ export function KPICard({
   icon: Icon,
   trend,
   accentColor = "default",
+  className,
 }: KPICardProps) {
   const iconBgMap = {
     default: "bg-primary/10 text-primary",
@@ -26,7 +29,7 @@ export function KPICard({
   };
 
   return (
-    <div className="kpi-card animate-fade-in">
+    <div className={cn("kpi-card animate-fade-in", className)}>
       <div className="flex items-start justify-between mb-3">
         <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${iconBgMap[accentColor]}`}>
           <Icon className="h-5 w-5" />

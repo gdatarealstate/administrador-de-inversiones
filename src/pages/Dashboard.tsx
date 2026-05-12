@@ -73,7 +73,7 @@ export default function Dashboard() {
       </div>
 
       {/* KPI Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4 items-stretch">
         <KPICard
           title="Capital Total Activo"
           value={formatCurrency(kpi.totalActiveCapital)}
@@ -107,26 +107,29 @@ export default function Dashboard() {
           accentColor="accent"
         />
         <KPICard
-          title="Próx. Vencimientos"
-          value={String(kpi.upcomingMaturities)}
-          subtitle="en los próximos 90 días"
+          title="Deuda Total Vencida"
+          value={formatCurrency(kpi.totalExpiredDebt)}
           icon={AlertTriangle}
           accentColor="destructive"
+          className="h-full min-h-[132px] xl:min-h-[128px]"
         />
-        <div className="md:col-start-1 md:row-start-4 lg:col-start-2 lg:row-start-3 xl:col-start-5 xl:row-start-2">
+        <div className="h-full md:col-start-1 md:row-start-4 lg:col-start-2 lg:row-start-3 xl:col-start-5 xl:row-start-2">
           <KPICard
-            title="Deuda Total Vencida"
-            value={formatCurrency(kpi.totalExpiredDebt)}
+            title="Próx. Vencimientos"
+            value={String(kpi.upcomingMaturities)}
+            subtitle="en los próximos 90 días"
             icon={AlertTriangle}
             accentColor="destructive"
+            className="h-full min-h-[152px] xl:min-h-[160px]"
           />
         </div>
-        <div className="md:col-start-2 md:row-start-4 lg:col-start-3 lg:row-start-3 xl:col-start-6 xl:row-start-2">
+        <div className="h-full md:col-start-2 md:row-start-4 lg:col-start-3 lg:row-start-3 xl:col-start-6 xl:row-start-2">
           <KPICard
             title="Contratos Vencidos"
             value={String(kpi.expiredContractsCount)}
             icon={AlertTriangle}
             accentColor="destructive"
+            className="h-full min-h-[132px] xl:min-h-[128px]"
           />
         </div>
       </div>
