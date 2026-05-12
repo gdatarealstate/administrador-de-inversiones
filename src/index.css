@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 222 60% 22%;
+    --primary-foreground: 45 100% 96%;
+
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 220 14% 95%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 42 92% 50%;
+    --accent-foreground: 222 60% 12%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 60% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 92% 10%;
+
+    --info: 210 90% 52%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 222 60% 22%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 222 60% 12%;
+    --sidebar-foreground: 220 20% 85%;
+    --sidebar-primary: 42 92% 50%;
+    --sidebar-primary-foreground: 222 60% 12%;
+    --sidebar-accent: 222 50% 18%;
+    --sidebar-accent-foreground: 220 20% 95%;
+    --sidebar-border: 222 40% 20%;
+    --sidebar-ring: 42 92% 50%;
+    --sidebar-muted: 222 30% 30%;
+
+    --chart-1: 222 60% 22%;
+    --chart-2: 42 92% 50%;
+    --chart-3: 152 60% 40%;
+    --chart-4: 210 90% 52%;
+    --chart-5: 0 72% 51%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 220 20% 95%;
+
+    --card: 222 40% 10%;
+    --card-foreground: 220 20% 95%;
+
+    --popover: 222 40% 10%;
+    --popover-foreground: 220 20% 95%;
+
+    --primary: 42 92% 50%;
+    --primary-foreground: 222 60% 12%;
+
+    --secondary: 222 30% 18%;
+    --secondary-foreground: 220 20% 90%;
+
+    --muted: 222 30% 15%;
+    --muted-foreground: 220 9% 55%;
+
+    --accent: 42 92% 50%;
+    --accent-foreground: 222 60% 12%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 42 92% 50%;
+
+    --sidebar-background: 222 50% 8%;
+    --sidebar-foreground: 220 20% 80%;
+    --sidebar-primary: 42 92% 50%;
+    --sidebar-primary-foreground: 222 60% 12%;
+    --sidebar-accent: 222 40% 14%;
+    --sidebar-accent-foreground: 220 20% 95%;
+    --sidebar-border: 222 30% 15%;
+    --sidebar-ring: 42 92% 50%;
+    --sidebar-muted: 222 20% 25%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .kpi-card {
+    @apply rounded-lg border bg-card p-5 shadow-sm transition-all duration-200 hover:shadow-md;
+  }
+
+  .kpi-value {
+    @apply text-2xl font-bold tracking-tight;
+  }
+
+  .kpi-label {
+    @apply text-sm font-medium text-muted-foreground;
+  }
+
+  .kpi-trend-up {
+    @apply text-success text-xs font-medium;
+  }
+
+  .kpi-trend-down {
+    @apply text-destructive text-xs font-medium;
+  }
+
+  .data-table {
+    @apply w-full text-sm;
+  }
+
+  .data-table th {
+    @apply text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground px-4 py-3 border-b;
+  }
+
+  .data-table td {
+    @apply px-4 py-3 border-b border-border/50;
+  }
+
+  .data-table tr:hover td {
+    @apply bg-muted/50;
+  }
+
+  .status-active {
+    @apply inline-flex items-center rounded-full bg-success/10 px-2.5 py-0.5 text-xs font-medium text-success;
+  }
+
+  .status-expired {
+    @apply inline-flex items-center rounded-full bg-destructive/10 px-2.5 py-0.5 text-xs font-medium text-destructive;
+  }
+
+  .module-header {
+    @apply flex items-center justify-between mb-6;
+  }
+
+  .module-title {
+    @apply text-2xl font-bold text-foreground;
+  }
+
+  .module-subtitle {
+    @apply text-sm text-muted-foreground mt-1;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
