@@ -52,6 +52,8 @@ export interface DashboardKPI {
   monthlyProjectedFlow: number;
   interestProvision: number;
   upcomingMaturities: number;
+  totalExpiredDebt: number;
+  expiredContractsCount: number;
 }
 
 export interface NamedDistribution {

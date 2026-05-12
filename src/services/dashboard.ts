@@ -86,6 +86,10 @@ export async function getDashboardData(): Promise<DashboardData> {
     return endDate >= now && endDate <= now + ninetyDays;
   }).length;
 
+  const expiredContracts = contracts.filter((contract) => contract.status === "Vencido");
+  const totalExpiredDebt = expiredContracts.reduce((sum, contract) => sum + contract.outstandingBalance, 0);
+  const expiredContractsCount = expiredContracts.length;
+
   const projectMap = new Map<string, { value: number; count: number }>();
   contracts.forEach((contract) => {
     const current = projectMap.get(contract.proyectoInmobiliario) ?? { value: 0, count: 0 };
@@ -118,6 +122,8 @@ export async function getDashboardData(): Promise<DashboardData> {
       monthlyProjectedFlow,
       interestProvision,
       upcomingMaturities,
+      totalExpiredDebt,
+      expiredContractsCount,
     },
     monthlyFlowData: buildMonthlyFlow(contracts, payments),
     portfolioGrowthData: buildPortfolioGrowth(contracts),

@@ -54,6 +54,8 @@ export default function Dashboard() {
     monthlyProjectedFlow: 0,
     interestProvision: 0,
     upcomingMaturities: 0,
+    totalExpiredDebt: 0,
+    expiredContractsCount: 0,
   };
   const monthlyFlowData = data?.monthlyFlowData ?? [];
   const portfolioGrowthData = data?.portfolioGrowthData ?? [];
@@ -111,6 +113,22 @@ export default function Dashboard() {
           icon={AlertTriangle}
           accentColor="destructive"
         />
+        <div className="md:col-start-1 md:row-start-4 lg:col-start-2 lg:row-start-3 xl:col-start-5 xl:row-start-2">
+          <KPICard
+            title="Deuda Total Vencida"
+            value={formatCurrency(kpi.totalExpiredDebt)}
+            icon={AlertTriangle}
+            accentColor="destructive"
+          />
+        </div>
+        <div className="md:col-start-2 md:row-start-4 lg:col-start-3 lg:row-start-3 xl:col-start-6 xl:row-start-2">
+          <KPICard
+            title="Contratos Vencidos"
+            value={String(kpi.expiredContractsCount)}
+            icon={AlertTriangle}
+            accentColor="destructive"
+          />
+        </div>
       </div>
       {isLoading && (
         <div className="text-sm text-muted-foreground">Cargando dashboard...</div>
