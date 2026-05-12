@@ -127,7 +127,7 @@ export default function Dashboard() {
             value={String(kpi.expiredContractsCount)}
             icon={AlertTriangle}
             accentColor="destructive"
-            className="h-full min-h-[132px] xl:min-h-[128px]"
+            className="h-full min-h-[152px] xl:min-h-[160px]"
           />
         </div>
       </div>
