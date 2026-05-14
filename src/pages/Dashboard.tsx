@@ -3,8 +3,9 @@ import {
   TrendingUp,
   Percent,
   ArrowUpDown,
-  Clock,
+  Hourglass,
   AlertTriangle,
+  Clock,
 } from "lucide-react";
 import {
   AreaChart,
@@ -52,7 +53,7 @@ export default function Dashboard() {
     accruedInterest: 0,
     weightedRate: 0,
     monthlyProjectedFlow: 0,
-    interestProvision: 0,
+    pendingProjectedInterest: 0,
     upcomingMaturities: 0,
     totalExpiredDebt: 0,
     expiredContractsCount: 0,
@@ -99,8 +100,8 @@ export default function Dashboard() {
           accentColor="success"
         />
         <KPICard
-          title="Provisión Intereses"
-          value={formatCurrency(kpi.interestProvision)}
+          title="Intereses Proyectados Pend."
+          value={formatCurrency(kpi.pendingProjectedInterest)}
           icon={Clock}
           accentColor="accent"
         />

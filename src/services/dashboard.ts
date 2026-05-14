@@ -1,3 +1,4 @@
+import { getContractPaymentProgress } from "@/lib/contract-status";
 import { listContracts } from "@/services/contracts";
 import { listInvestors } from "@/services/investors";
 import { listPayments } from "@/services/payments";
@@ -78,7 +79,10 @@ export async function getDashboardData(): Promise<DashboardData> {
         weightedRateDenominator
       : 0;
   const monthlyProjectedFlow = activeContracts.reduce((sum, contract) => sum + contract.monthlyInterest, 0);
-  const interestProvision = Math.round(monthlyProjectedFlow * 6);
+  const pendingProjectedInterest = contracts.reduce(
+    (sum, contract) => sum + getContractPaymentProgress(contract, payments).remainingInterest,
+    0
+  );
   const upcomingMaturities = contracts.filter((contract) => {
     const endDate = new Date(contract.endDate).getTime();
     const now = Date.now();
@@ -120,7 +124,7 @@ export async function getDashboardData(): Promise<DashboardData> {
       accruedInterest,
       weightedRate,
       monthlyProjectedFlow,
-      interestProvision,
+      pendingProjectedInterest,
       upcomingMaturities,
       totalExpiredDebt,
       expiredContractsCount,

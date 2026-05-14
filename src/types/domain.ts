@@ -50,7 +50,7 @@ export interface DashboardKPI {
   accruedInterest: number;
   weightedRate: number;
   monthlyProjectedFlow: number;
-  interestProvision: number;
+  pendingProjectedInterest: number;
   upcomingMaturities: number;
   totalExpiredDebt: number;
   expiredContractsCount: number;
